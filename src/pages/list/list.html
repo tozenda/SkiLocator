@@ -11,16 +11,19 @@
   <ion-list>
     <div ion-item *ngFor="let card of cards;let i = index">
       {{card.uid}}
-      <div class="item-note" item-end>
-        <button (click)="removeSkiCard(card)">
-        X
+      <div class="removeButton" item-end>
+        <button ion-button color="danger" round (click)="localiseSki(card)">
+          <ion-icon name="pin"></ion-icon>
+        </button>
+        <button ion-button color="danger" round (click)="removeSkiCard(card)">
+          <ion-icon name="trash"></ion-icon>
         </button>
       </div>
       
     </div>
   </ion-list>
-  <button (click)="createSkiCard()">
-   +
+  <button ion-button (click)="createSkiCard()">
+    Add a skiCard
   </button>
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>

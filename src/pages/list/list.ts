@@ -19,7 +19,10 @@ export class ListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     //get name from server ? 
-    this.createSkiCard();
+    var selectedItem: cardI = {name:null,uid:null};
+    selectedItem.name = "randomForNow";
+    selectedItem.uid = UUID.UUID(); 
+    this.cards.push(selectedItem);
     // this.selectedItem.uid = this.uuid;
     // Let's populate this page with some filler content for funzies
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
