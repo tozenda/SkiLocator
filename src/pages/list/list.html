@@ -12,7 +12,7 @@
     <div ion-item *ngFor="let card of cards;let i = index">
       {{card.uid}}
       <div class="removeButton" item-end>
-        <button ion-button color="danger" round (click)="localiseSki(card)">
+        <button ion-button color="dark" round (click)="localiseSki(card)">
           <ion-icon name="pin"></ion-icon>
         </button>
         <button ion-button color="danger" round (click)="removeSkiCard(card)">

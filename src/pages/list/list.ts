@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {cardI}  from './cardInterface'
 import { UUID } from 'angular2-uuid';
-
+import { LocaliseSkiPage }from '../localise-ski/localise-ski'
 
 
 @Component({
@@ -35,6 +35,13 @@ export class ListPage {
     selectedItem.uid = UUID.UUID(); 
     this.cards.push(selectedItem);
   }
+
+  localiseSki(card){
+    this.navCtrl.push(LocaliseSkiPage, {
+        card: card
+      });
+  }
+
   removeSkiCard(card:cardI){
     this.cards = this.cards.filter(item => item.uid !== card.uid);
     this.cards.push();

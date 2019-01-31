@@ -8,7 +8,6 @@ import { ListPage } from '../pages/list/list';
 import {AddSkiPage } from '../pages/add-ski/add-ski';
 import {LocaliseSkiPage } from '../pages/localise-ski/localise-ski';
 
-import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -35,7 +34,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    UniqueDeviceID,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
