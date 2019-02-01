@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { ListService } from '../../services/list.service';
 import { UUID } from 'angular2-uuid';
 
@@ -26,9 +25,9 @@ export class AddSkiPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, private listService: ListService) {
   }
 
-  private subscribeToSaveResponse(result: Observable<HttpResponse<any>>) {
-    result.subscribe((res: HttpResponse<any>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
-  }
+  // private subscribeToSaveResponse(result: Observable<HttpResponse<any>>) {
+  //   result.subscribe((res: HttpResponse<any>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
+  // }
 
   private onSaveSuccess() {
     this.isSaving = false;

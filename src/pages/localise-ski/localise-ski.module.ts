@@ -10,4 +10,6 @@ import { LocaliseSkiPage } from './localise-ski';
     IonicPageModule.forChild(LocaliseSkiPage),
   ],
 })
-export class LocaliseSkiPageModule {}
+export class LocaliseSkiPageModule{
+
+}

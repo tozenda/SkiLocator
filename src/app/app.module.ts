@@ -8,7 +8,9 @@ import {LocaliseSkiPage } from '../pages/localise-ski/localise-ski';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ListService } from '../services/list.service'
+import { ListService } from '../services/list.service';
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation/ngx';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ListService } from '../services/list.service'
   ],
   providers: [
     ListService,
+    DeviceOrientation,
     BarcodeScanner,
     StatusBar,
     SplashScreen,

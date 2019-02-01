@@ -26,7 +26,8 @@ export class ListPage implements OnInit {
     this.listService.emitWholeItemSubject();
   }
 
-  public localiseSki(card: cardI) {
+  public localiseSki(card: cardI, event: Event) {
+    event.stopPropagation();
     this.navCtrl.push(LocaliseSkiPage, {
       card: card
     });
@@ -40,7 +41,7 @@ export class ListPage implements OnInit {
     this.listService.createSkiCardFromParameters('test', UUID.UUID());
   }
 
-  rename(card: cardI) {
+  rename(card: cardI, event: Event) {
     let al = this.alertCtrl.create({
       title: 'Rename the selected item',
       inputs: [
