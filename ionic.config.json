@@ -1,0 +1,7 @@
+{
+  "name": "skiLocator",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
