@@ -20,7 +20,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
-    "@ionic-native/barcode-scanner": "5.0.0-beta.15",
+    "@ionic-native/barcode-scanner": "^4.20.0",
     "@ionic-native/core": "~4.18.0",
     "@ionic-native/device-orientation": "^5.0.0",
     "@ionic-native/qr-scanner": "^5.0.0",

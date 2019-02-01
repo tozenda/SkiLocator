@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
@@ -18,9 +18,10 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 })
 export class AddSkiPage {
   private isSaving: Boolean;
-  constructor(private barcodeScanner: BarcodeScanner) {
-    this.barcodeScanner = barcodeScanner;
-    console.log(barcodeScanner)
+  scanData : {};
+  options :BarcodeScannerOptions;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private barcodeScanner: BarcodeScanner) {
   }
 
   private subscribeToSaveResponse(result: Observable<HttpResponse<any>>) {
@@ -35,14 +36,18 @@ export class AddSkiPage {
     if (this.isSaving) { this.isSaving = false; }
   }
 
+  /* If you get the 'Err Object(...) is not a funcion just run $ npm i -s @ionic-native/barcode-scanner@4.20.0
+*/
   scanCode() {
-    this.barcodeScanner.scan()
-      .then((result) => {
-        console.log(result)
-      })
-      .catch((error) => {
-        alert(error);
-      })
+    this.options = {
+       prompt : "Scan your barcode "
+   }
+   this.barcodeScanner.scan(this.options).then((barcodeData) => {
+       console.log(barcodeData);
+       this.scanData = barcodeData;
+   }, (err) => {
+       console.log("Error occured : " + err);
+   });
   }
 
   ionViewDidLoad() {

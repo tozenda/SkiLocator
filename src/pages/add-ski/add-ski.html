@@ -3,13 +3,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Ski connected</ion-title>
+    <ion-title>Add Ski</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <button ion-button full icon-left (click)="scanCode()" color="secondary">
-    <ion-icon name="qr-scanner"></ion-icon>Scan Code
-  </button>
+<ion-content padding>
+    <button ion-button (click)="scanCode()">Scan ... </button>
+    <div *ngIf="scanData">
+        <p>Scanned Text : {{scanData.text}}</p>
+        <p>Scanned Format : </p>
 
+    </div>
 </ion-content>
