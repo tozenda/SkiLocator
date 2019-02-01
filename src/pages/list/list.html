@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>Press one to rename</ion-item>
+  <ion-item *ngIf="cards.length != 0">Press an item to rename it</ion-item>
 
   <ion-list>
     <button ion-item detail='false' *ngFor="let card of cards;let i = index" (click)='rename(card)'>
@@ -24,10 +24,12 @@
     </button>
   </ion-list>
 
-  <button ion-button (click)="createSkiCard()">
-    Add a skiCard
-  </button>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+  <ion-item float='center'>
+    <button ion-button (click)="createSkiCard()">
+      Add a skiCard
+    </button>
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title}}</b>
+    </div>
+  </ion-item>
 </ion-content>

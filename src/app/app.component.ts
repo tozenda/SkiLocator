@@ -2,9 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import {AddSkiPage } from '../pages/add-ski/add-ski'
+import {AddSkiPage } from '../pages/add-ski/add-ski';
+import { LocaliseSkiPage} from '../pages/localise-ski/localise-ski';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,7 +12,7 @@ import {AddSkiPage } from '../pages/add-ski/add-ski'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = AddSkiPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -21,9 +21,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List ski', component: ListPage },
-      { title: 'Add ski', component: AddSkiPage }
+      { title: 'Ski List', component: ListPage },
+      { title: 'Add a Ski', component: AddSkiPage },
+      { title: 'Find a Ski', component: LocaliseSkiPage },
     ];
 
   }
