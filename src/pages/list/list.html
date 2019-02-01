@@ -8,9 +8,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>Press one to rename</ion-item>
+
   <ion-list>
-    <div ion-item *ngFor="let card of cards;let i = index">
-      {{card.uid}}
+    <button ion-item detail='false' *ngFor="let card of cards;let i = index" (click)='rename(card)'>
+      {{card.name}}
       <div class="removeButton" item-end>
         <button ion-button color="dark" round (click)="localiseSki(card)">
           <ion-icon name="pin"></ion-icon>
@@ -19,9 +21,9 @@
           <ion-icon name="trash"></ion-icon>
         </button>
       </div>
-      
-    </div>
+    </button>
   </ion-list>
+
   <button ion-button (click)="createSkiCard()">
     Add a skiCard
   </button>

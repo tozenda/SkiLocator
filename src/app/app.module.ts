@@ -9,6 +9,7 @@ import {LocaliseSkiPage } from '../pages/localise-ski/localise-ski';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ListService } from '../services/list.service'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LocaliseSkiPage
   ],
   providers: [
+    ListService,
     BarcodeScanner,
     StatusBar,
     SplashScreen,

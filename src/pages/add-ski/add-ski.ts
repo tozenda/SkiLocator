@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { ListService } from '../../services/list.service';
+import { UUID } from 'angular2-uuid';
 
 /**
  * Generated class for the AddSkiPage page.
@@ -18,10 +20,10 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 })
 export class AddSkiPage {
   private isSaving: Boolean;
-  scanData : {};
-  options :BarcodeScannerOptions;
+  scanData: {};
+  options: BarcodeScannerOptions;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private barcodeScanner: BarcodeScanner) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, private listService: ListService) {
   }
 
   private subscribeToSaveResponse(result: Observable<HttpResponse<any>>) {
@@ -40,14 +42,15 @@ export class AddSkiPage {
 */
   scanCode() {
     this.options = {
-       prompt : "Scan your barcode "
-   }
-   this.barcodeScanner.scan(this.options).then((barcodeData) => {
-       console.log(barcodeData);
-       this.scanData = barcodeData;
-   }, (err) => {
-       console.log("Error occured : " + err);
-   });
+      prompt: "Scan your barcode "
+    }
+    this.barcodeScanner.scan(this.options).then((barcodeData) => {
+      console.log(barcodeData);
+      this.scanData = barcodeData;
+      this.listService.createSkiCardFromParameters(barcodeData.text, UUID.UUID());
+    }, (err) => {
+      console.log("Error occured : " + err);
+    });
   }
 
   ionViewDidLoad() {

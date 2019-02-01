@@ -1,4 +1,4 @@
 export interface cardI{
-    name:string;
-    uid:string;
-} 
+    name:String;
+    uid:String;
+}
