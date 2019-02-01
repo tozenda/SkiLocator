@@ -11,8 +11,10 @@
   <ion-item *ngIf="cards.length != 0">Press an item to rename it</ion-item>
 
   <ion-list>
-    <button ion-item detail='false' *ngFor="let card of cards;let i = index" (click)='rename(card)'>
-      {{card.name}}
+    <div ion-item detail='false' *ngFor="let card of cards">
+      <div (click)='rename(card)'>
+        {{card.name}}
+      </div>
       <div class="removeButton" item-end>
         <button ion-button color="dark" round (click)="localiseSki(card)">
           <ion-icon name="pin"></ion-icon>
@@ -21,7 +23,7 @@
           <ion-icon name="trash"></ion-icon>
         </button>
       </div>
-    </button>
+    </div>
   </ion-list>
 
   <ion-item float='center'>
