@@ -30,8 +30,15 @@
     <button ion-button (click)="createSkiCard()">
       Add a skiCard
     </button>
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title}}</b>
-    </div>
   </ion-item>
+  <ion-footer no-shadow>
+    <ion-toolbar position="bottom">
+      <div *ngIf="gatewayConnected; else connect">
+		    <button ion-button full >Gateway Connected</button>
+      </div>
+      <ng-template #connect>
+        <button ion-button color="danger" (click)="openSetting()" full>Click to connect the gateway</button>
+      </ng-template>
+	</ion-toolbar>
+</ion-footer>
 </ion-content>
