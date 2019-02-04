@@ -9,7 +9,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListService } from '../services/list.service';
-import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation/ngx';
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
 
 
 @NgModule({

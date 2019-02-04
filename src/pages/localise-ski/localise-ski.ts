@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation/ngx';
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
 
 /**
  * Generated class for the LocaliseSkiPage page.
@@ -21,7 +21,7 @@ export class LocaliseSkiPage {
 
   public test() {
     this.deviceOrientation.getCurrentHeading().then(
-      (data: DeviceOrientationCompassHeading) => console.log(data),
+      (dat: DeviceOrientationCompassHeading) => this.data = JSON.stringify(dat),
       (error: any) => console.log(error)
     );
   }
