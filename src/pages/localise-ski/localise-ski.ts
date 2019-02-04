@@ -16,13 +16,32 @@ import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-nativ
 })
 export class LocaliseSkiPage {
   public data: any = 'data';
+  public magneticHeading: number = 0;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public deviceOrientation: DeviceOrientation) {
+    this.magneticHeading = 0;
+    deviceOrientation.getCurrentHeading().then(
+      (data1: DeviceOrientationCompassHeading) => {
+        this.magneticHeading = data1.magneticHeading,
+          document.getElementById('rotatingArrow').setAttribute("style", "transform: rotate(" + this.magneticHeading + "deg)")
+      }
+      , (error: any) => console.log(error + "err")
+    );
+    const options = { frequency: 100 };
+    const subscription = deviceOrientation.watchHeading(options).subscribe(
+      (data3: DeviceOrientationCompassHeading) => {
+        this.magneticHeading = data3.magneticHeading,
+          document.getElementById('rotatingArrow').setAttribute("style", "transform: rotate(" + this.magneticHeading + "deg)");
+      }
+      , (error: any) => console.log(error + "errtt"));
   }
 
   public test() {
     this.deviceOrientation.getCurrentHeading().then(
-      (dat: DeviceOrientationCompassHeading) => this.data = JSON.stringify(dat),
-      (error: any) => console.log(error)
+      (dat: DeviceOrientationCompassHeading) => {
+        this.data = JSON.stringify(dat),
+          (error: any) => console.log(error)
+      }
     );
   }
 

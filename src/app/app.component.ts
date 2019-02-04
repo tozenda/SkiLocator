@@ -12,7 +12,7 @@ import { LocaliseSkiPage} from '../pages/localise-ski/localise-ski';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AddSkiPage;
+  rootPage: any = LocaliseSkiPage;
 
   pages: Array<{title: string, component: any}>;
 
