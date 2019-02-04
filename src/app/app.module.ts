@@ -9,6 +9,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListService } from '../services/list.service'
+import { OpenNativeSettings } from '@ionic-native/open-native-settings';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ListService } from '../services/list.service'
     BarcodeScanner,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    OpenNativeSettings
   ]
 })
 export class AppModule {}

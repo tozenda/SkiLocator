@@ -11,8 +11,10 @@
   <ion-item *ngIf="cards.length != 0">Press an item to rename it</ion-item>
 
   <ion-list>
-    <button ion-item detail='false' *ngFor="let card of cards;let i = index" (click)='rename(card)'>
-      {{card.name}}
+    <div ion-item detail='false' *ngFor="let card of cards">
+      <div (click)='rename(card)'>
+        {{card.name}}
+      </div>
       <div class="removeButton" item-end>
         <button ion-button color="dark" round (click)="localiseSki(card)">
           <ion-icon name="pin"></ion-icon>
@@ -21,15 +23,22 @@
           <ion-icon name="trash"></ion-icon>
         </button>
       </div>
-    </button>
+    </div>
   </ion-list>
 
   <ion-item float='center'>
     <button ion-button (click)="createSkiCard()">
       Add a skiCard
     </button>
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title}}</b>
-    </div>
   </ion-item>
+  <ion-footer no-shadow>
+    <ion-toolbar position="bottom">
+      <div *ngIf="gatewayConnected; else connect">
+		    <button ion-button full >Gateway Connected</button>
+      </div>
+      <ng-template #connect>
+        <button ion-button color="danger" (click)="openSetting()" full>Click to connect the gateway</button>
+      </ng-template>
+	</ion-toolbar>
+</ion-footer>
 </ion-content>

@@ -5,6 +5,7 @@ import { LocaliseSkiPage } from '../localise-ski/localise-ski';
 import { ListService } from '../../services/list.service';
 import { Subscription } from 'rxjs/Subscription';
 import { NavController, AlertController } from 'ionic-angular';
+import { OpenNativeSettings } from '@ionic-native/open-native-settings';
 
 
 @Component({
@@ -15,10 +16,11 @@ import { NavController, AlertController } from 'ionic-angular';
 export class ListPage implements OnInit {
   items: Array<{ title: string, note: string, icon: string }>;
   cards: Array<cardI> = [];
+  gatewayConnected: boolean = false;
   private itemSubscription: Subscription;
 
-  constructor(private navCtrl: NavController, private alertCtrl: AlertController, private listService: ListService) {
-
+  constructor(private openNativeSettings:OpenNativeSettings,private navCtrl: NavController, private alertCtrl: AlertController, private listService: ListService) {
+    console.log(openNativeSettings)
   }
 
   ngOnInit(): void {
@@ -38,6 +40,14 @@ export class ListPage implements OnInit {
 
   createSkiCard() {
     this.listService.createSkiCardFromParameters('test', UUID.UUID());
+  }
+
+  openSetting(){
+    this.openNativeSettings.open("bluetooth").then(val => {
+      alert('bluettoth')
+    }).catch(err=>{
+      alert(JSON.stringify(err))
+    });
   }
 
   rename(card: cardI) {

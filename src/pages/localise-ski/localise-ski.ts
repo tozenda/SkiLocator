@@ -13,7 +13,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'localise-ski.html',
 })
 export class LocaliseSkiPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

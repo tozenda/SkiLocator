@@ -13,6 +13,8 @@ log.txt
 npm-debug.log*
 .class
 .classpath
+.package-lock.json
+
 
 .idea/
 .ionic/
